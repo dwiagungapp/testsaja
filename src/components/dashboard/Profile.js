@@ -7,6 +7,11 @@ import { GlobalContext } from "../../context/GlobalContext";
 export default function Profile() {
   return (
     <>
+    <div className="mt-8 md:mt-8 md:col-span-2">
+    <h1 className="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">
+      {" "}
+      Data Profile
+    </h1></div>
       <div className="flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl pt-10 rounded-lg border-2 border-gray-50 mt-6">
         <div className="px-6">
           <div className="flex flex-wrap justify-center">

@@ -6,13 +6,14 @@ import { AiOutlineEnvironment } from 'react-icons/ai'
 
 const JobDetail = () => {
 
-    const { state, handleFunctions } = useContext(GlobalContext);
+    const { handleFunctions } = useContext(GlobalContext);
 
     const {Id} = useParams()
     const [data, setData] = useState(null)
 
     const {
         formatRupiah,
+        handleStatus,
       } = handleFunctions;
 
     useEffect(() => {
@@ -34,12 +35,12 @@ const JobDetail = () => {
 <div className="flex flex-col items-center my-10 px-4 sm:px-8 md:px-16">
   <div className="bg-white shadow-md max-w-4xl w-full">
 <div className="">
-<img src='https://loremflickr.com/1000/250' alt='Company' className=' w-full '/>
+<img src={data?.company_image_url} alt='Company' className=' w-full h-80 border-b'/>
 </div>
 <div className="px-6 py-4">
 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
         <div className="flex items-center mb-4 md:mb-0">
-          <img alt="Company Foto" src={data?.company_image_url} className="rounded-full h-10 w-10 mr-10" />
+          <img alt="Company Foto" src={data?.company_image_url} className="rounded-lg h-10 w-10 mr-10" />
           <div>
           <h3 className="text-lg leading-6 font-medium text-gray-900">
               {data?.title}
@@ -58,7 +59,7 @@ const JobDetail = () => {
             </p>
           </div>
         </div>
-        <button type="button" className="bg-[#1d4ed8] hover:bg-blue-400 text-white font-bold p-3 rounded-lg">
+        <button type="button" className="bg-[#21A753] hover:opacity-80 text-white font-medium p-3 rounded-lg">
           Lamar sekarang
         </button>
       </div>
@@ -67,7 +68,7 @@ const JobDetail = () => {
       </div>
 
 <div className="flex flex-col items-center my-10 px-4 sm:px-8 md:px-16">
-  <div className="bg-white shadow-md max-w-4xl w-full">
+  <div className="bg-white shadow-md max-w-4xl w-full border rounded-lg">
     <div className="px-6 py-4">
       <div className="py-4 flex flex-col">
 
@@ -82,7 +83,7 @@ const JobDetail = () => {
 
         <div className="mb-4">
           <h4 className="text-lg leading-6 font-medium text-gray-900 mb-2">
-            Kualifikasi pekerjaan
+          Job Qualification
           </h4>
           <p className="text-sm text-gray-500">
             {data?.job_qualification}
@@ -91,7 +92,16 @@ const JobDetail = () => {
 
         <div className="mb-4">
           <h4 className="text-lg leading-6 font-medium text-gray-900 mb-2">
-            Status pekerjaan
+          Job Type
+          </h4>
+          <p className="text-sm text-gray-500">
+            {data?.job_type}
+          </p>
+        </div>
+
+        <div className="mb-4">
+          <h4 className="text-lg leading-6 font-medium text-gray-900 mb-2">
+          Job Tenure
           </h4>
           <p className="text-sm text-gray-500">
             {data?.job_tenure}
@@ -100,7 +110,16 @@ const JobDetail = () => {
 
         <div className="mb-4">
           <h4 className="text-lg leading-6 font-medium text-gray-900 mb-2">
-            Gaji
+          Job Status
+          </h4>
+          <p className="text-sm text-gray-500">
+          {handleStatus(data?.job_status)}
+          </p>
+        </div>
+
+        <div className="mb-4">
+          <h4 className="text-lg leading-6 font-medium text-gray-900 mb-2">
+            Job Salary
           </h4>
           <p className="text-sm text-gray-500">
             {formatRupiah(data?.salary_min + "")}/Month

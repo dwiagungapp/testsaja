@@ -3,8 +3,9 @@ import SideBar from "./Sidebar";
 import TopBar from "./TopBar";
 import { Transition } from "@headlessui/react";
 import Footer from "./Footer";
+import Cookies from "js-cookie";
 
-export default function LayoutDashboard({ children }) {
+const LayoutDashboard = (props) => {
   const [showNav, setShowNav] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -48,9 +49,11 @@ export default function LayoutDashboard({ children }) {
           showNav && !isMobile ? "pl-56" : ""
         }`}
       >
-        <div className="px-4 md:px-16">{children}</div>
+        <div className="px-4 md:px-16">{props.children}</div>
         <Footer/>
       </main>
     </>
   );
 }
+
+export default LayoutDashboard

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
+import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon, LockClosedIcon, } from "@heroicons/react/24/solid";
 
 const SideBar = forwardRef(({ showNav }, ref) => {
   const navigate = useNavigate();
@@ -77,6 +77,21 @@ const SideBar = forwardRef(({ showNav }, ref) => {
           </div>
           <div>
             <p>Profile</p>
+          </div>
+        </div>
+        <div
+          className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
+            location.pathname === "/dashboard/profile/change-password"
+              ? "bg-orange-100 text-orange-500"
+              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
+          }`}
+          onClick={() => navigate("/dashboard/profile/change-password")}
+        >
+          <div className="mr-2">
+            <LockClosedIcon className="h-5 w-5" />
+          </div>
+          <div>
+            <p>Change Password</p>
           </div>
         </div>
 

@@ -1,13 +1,11 @@
 import React from "react";
-import HeroSection from "../../pages/HeroSection";
+import HeroSection from "./HeroSection";
 import JobListHome from "./JobListHome";
-import CategorySection from "./CategorySection";
 
 const JobHome = () => {
     return (
         <>
         <HeroSection/>
-        <CategorySection/>
         <JobListHome/>
         </>
     )

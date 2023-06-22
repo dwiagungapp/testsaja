@@ -5,9 +5,9 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const ListJob = () => {
-  const { state, handleFunctions } = useContext(GlobalContext);
+  const { handleFunctions } = useContext(GlobalContext);
   const [data, setData] = useState(null);
-  const { formatRupiah, handleEdit, handleDelete } = handleFunctions;
+  const { formatRupiah, handleEdit, handleDelete, handleText } = handleFunctions;
 
   useEffect(() => {
     axios.get("https://dev-example.sanbercloud.com/api/job-vacancy")
@@ -49,6 +49,9 @@ const ListJob = () => {
                 Company Name
               </th>
               <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                Job Description
+              </th>
+              <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                 Salary
               </th>
               <th
@@ -60,9 +63,11 @@ const ListJob = () => {
             </tr>
           </thead>
           <tbody className="bg-white">
+          
           { data !== null && data
                     .map((res, index) => {
             return (
+                
                 <React.Fragment key={res.id}>
             <tr>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -78,6 +83,11 @@ const ListJob = () => {
                   {res.company_name}
                 </p>
               </td>
+              <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <p>
+                {handleText(res.job_description, 10) }
+                </p>
+              </td>
               <td className="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                 <span>{formatRupiah(res?.salary_min + "") }</span>
               </td>
@@ -86,7 +96,7 @@ const ListJob = () => {
   onClick={handleEdit}
   value={res.id}
   type="button"
-  className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+  className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 mr-2 mb-2"
 >
   <FaEdit />
 </button>

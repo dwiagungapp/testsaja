@@ -47,57 +47,48 @@ export const GlobalProvider = (props) => {
       salary_max,
     } = input;
 
+    const requestData = {
+      id,
+      title,
+      job_description,
+      job_qualification,
+      job_type,
+      job_tenure,
+      job_status,
+      company_name,
+      company_image_url,
+      company_city,
+      salary_min,
+      salary_max,
+    };
+
     if (currentIndex === -1) {
       axios
-        .post(
-          `https://dev-example.sanbercloud.com/api/job-vacancy`,
-          {
-            id,
-            title,
-            job_description,
-            job_qualification,
-            job_type,
-            job_tenure,
-            job_status,
-            company_name,
-            company_image_url,
-            company_city,
-            salary_min,
-            salary_max,
-          },
-          { headers: { Authorization: "Bearer " + Cookies.get("token") } }
+        .post('https://dev-example.sanbercloud.com/api/job-vacancy', requestData, 
+        { headers: { Authorization: "Bearer " + Cookies.get("token") } }
         )
         .then((res) => {
-          alert("Data berhasil ditambahkan");
-          navigate("/dashboard/list-job-vacancy");
+          swal('Success', 'Data has been created!', 'success');
           setFetchStatus(true);
+        })
+        .then(() => {
+          navigate('/dashboard/list-job-vacancy');
         });
     } else {
-      axios
-        .put(
-          `https://dev-example.sanbercloud.com/api/job-vacancy/${currentIndex}`,
-          {
-            title,
-            job_description,
-            job_qualification,
-            job_type,
-            job_tenure,
-            job_status,
-            company_name,
-            company_image_url,
-            company_city,
-            salary_min,
-            salary_max,
-          },
-          { headers: { Authorization: "Bearer " + Cookies.get("token") } }
-        )
-        .then((res) => {
-          alert("data berhasil dirubah");
-          navigate("/dashboard/list-job-vacancy");
-
-          setFetchStatus(true);
+    axios
+      .put(
+        `https://dev-example.sanbercloud.com/api/job-vacancy/${currentIndex}`,
+        requestData, { headers: { Authorization: "Bearer " + Cookies.get("token") } }
+      )
+      .then((res) => {
+        swal('Success', 'Data has been updated!', 'success');
+        setFetchStatus(true);
+      })
+      .then(() => {
+          navigate('/dashboard/list-job-vacancy');
         });
-    }
+      ;
+  }
 
     setInput({
       title: "",
@@ -206,6 +197,16 @@ export const GlobalProvider = (props) => {
     }
   };
 
+  const handleText = (text, max) => {
+    if (text === null) {
+      return '';
+    } else if (text.length > 10) {
+      return text.slice(0, max) + '...';
+    } else {
+      return text;
+    }
+  };
+
   let handleFunctions = {
     handleSubmit,
     handleChange,
@@ -214,6 +215,7 @@ export const GlobalProvider = (props) => {
     handleDelete,
     handleStatus,
     formatRupiah,
+    handleText,
   };
 
   let state = {

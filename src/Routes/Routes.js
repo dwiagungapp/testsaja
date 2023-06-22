@@ -16,19 +16,26 @@ import ChangePassword from "../components/dashboard/ChangePassword";
 import FormCreateJob from "../components/dashboard/FormCreateJob";
 
 const Pages = () => {
-    
-  const LoginRoute = ({ ...props }) => {
+  const LoginRoute = (props) => {
     if (Cookies.get("token") === undefined) {
-      return <Route {...props} />;
-    } else if (Cookies.get("token") !== undefined) {
+      return props.children;
+    } else {
       return <Navigate to={"/"} />;
     }
   };
 
-  const DashboardRoute = ({ ...props }) => {
+  const RegisterRoute = (props) => {
+    if (Cookies.get("token") === undefined) {
+      return props.children;
+    } else {
+      return <Navigate to={"/"} />;
+    }
+  };
+
+  const DashboardRoute = (props) => {
     if (Cookies.get("token") !== undefined) {
-      return <Route {...props} />;
-    } else if (Cookies.get("token") === undefined) {
+      return props.children;
+    } else {
       return <Navigate to={"/login"} />;
     }
   };
@@ -36,109 +43,120 @@ const Pages = () => {
   return (
     <BrowserRouter>
       <GlobalProvider>
-      <Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LayoutComponent>
+                <JobHome />
+              </LayoutComponent>
+            }
+          />
 
-      <Route path='/' element={
-      <LayoutComponent>
-        <JobHome />
-      </LayoutComponent>
-      } />
+          <Route
+            path="/login"
+            element={
+              <LoginRoute>
+                <LayoutComponent>
+                  <Login />
+                </LayoutComponent>
+              </LoginRoute>
+            }
+          />
 
-      <Route path='/login' element={
-      <LayoutComponent>
-        <Login />
-      </LayoutComponent>
-      } />
+          <Route
+            path="/register"
+            element={
+              <LoginRoute>
+              <LayoutComponent>
+                <Register />
+              </LayoutComponent>
+              </LoginRoute>
+            }
+          />
 
-      <Route path='/register' element={
-      <LayoutComponent>
-        <Register />
-      </LayoutComponent>
-      } />
+          <Route
+            path="/job-vacancy/:Id"
+            element={
+              <LayoutComponent>
+                <JobDetail />
+              </LayoutComponent>
+            }
+          />
 
-      <Route path='/job-vacancy/:Id' element={
-      <LayoutComponent>
-        <JobDetail />
-      </LayoutComponent>
-      } />
+          <Route
+            path="/job-vacancy"
+            element={
+              <LayoutComponent>
+                <JobList />
+              </LayoutComponent>
+            }
+          />
 
-      <Route path='/job-vacancy' element={
-      <LayoutComponent>
-        <JobList />
-      </LayoutComponent>
-      } />
+          <Route
+            path="*"
+            element={
+              <LayoutComponent>
+                <NotFound />
+              </LayoutComponent>
+            }
+          />
 
-      <Route path='*' element={
-      <LayoutComponent>
-        <NotFound />
-      </LayoutComponent>
-      } />
+          <Route
+            path="/dashboard/list-job-vacancy"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <ListJob />
+                </DashboardComponent>
+              </DashboardRoute>
+            }
+          />
 
-      <Route path='/dashboard/list-job-vacancy' element={
-      <DashboardComponent>
-        <ListJob />
-      </DashboardComponent>
-      } />
+          <Route
+            path="/dashboard/profile"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <Profile />
+                </DashboardComponent>
+              </DashboardRoute>
+            }
+          />
 
-      <Route path='/dashboard/profile' element={
-      <DashboardComponent>
-        <Profile />
-      </DashboardComponent>
-      } />
+          <Route
+            path="/dashboard/profile/change-password"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <ChangePassword />
+                </DashboardComponent>
+              </DashboardRoute>
+            }
+          />
 
-      <Route path='/dashboard/profile/change-password' element={
-      <DashboardComponent>
-        <ChangePassword />
-      </DashboardComponent>
-      } />
+          <Route
+            path="/dashboard/list-job-vacancy/form"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <FormCreateJob />
+                </DashboardComponent>
+              </DashboardRoute>
+            }
+          />
 
-      <Route path='/dashboard/list-job-vacancy/form' element={
-      <DashboardComponent>
-        <FormCreateJob />
-      </DashboardComponent>
-      } />
-      
-      <Route path='/dashboard/list-job-vacancy/edit/:slug' element={
-      <DashboardComponent>
-        <FormCreateJob />
-      </DashboardComponent>
-      } />
-
-
-      </Routes>
-        {/* <Route path="/job-vacancy/:slug" exact>
-          <LayoutComponent content={<JobCard />} />
-        </Route>
-        <Route path="/search/:valueOfSearch" exact>
-          <LayoutComponent content={<SearchSection />} />
-        </Route>
-        <DashboardRoute path="/dashboard/list-job-vacancy" exact>
-          <LayoutComponent content={<JobList />} />
-        </DashboardRoute>
-        <DashboardRoute path="/dashboard/list-job-vacancy/edit/:slug" exact>
-          <LayoutComponent content={<JobForm />} />
-        </DashboardRoute>
-        <DashboardRoute path="/dashboard/list-job-vacancy/form" exact>
-          <LayoutComponent content={<JobForm />} />
-        </DashboardRoute>
-        <DashboardRoute path="/dashboard/profile" exact>
-          <LayoutComponent content={<CardProfile />} />
-        </DashboardRoute>
-        <DashboardRoute
-          path="/dashboard/profile/change-password"
-          exact
-        >
-          <LayoutComponent content={<ChangePassword />} />
-        </DashboardRoute>
-        <LoginRoute path="/login" exact>
-          <LayoutComponent content={<Login />} />
-        </LoginRoute>
-        <Route path="/register" exact>
-          <LayoutComponent content={<Regist />} />
-        </Route>
-        <Route path="*">
-          <LayoutComponent content={<NotFound />} />
-        </Route> */}
+          <Route
+            path="/dashboard/list-job-vacancy/edit/:slug"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <FormCreateJob />
+                </DashboardComponent>
+              </DashboardRoute>
+            }
+          />
+        </Routes>
       </GlobalProvider>
     </BrowserRouter>
   );
