@@ -191,7 +191,7 @@ export const GlobalProvider = (props) => {
       }
 
       rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
-      return rupiah === "0" ? "Free" : "Rp" + rupiah + ",-";
+      return rupiah === "0" ? "Free" : "Rp" + rupiah + "";
     } else {
       return "Free";
     }

@@ -8,7 +8,7 @@ const JobList = () => {
   const { handleFunctions } = useContext(GlobalContext);
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const { formatRupiah } = handleFunctions;
+  const { formatRupiah, handleText } = handleFunctions;
   const [searchQuery, setSearchQuery] = useState('');
   const [minSalary, setMinSalary] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -67,14 +67,14 @@ const JobList = () => {
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
-          className="w-full sm:w-[50%] px-4 py-2 outline-none border border-2 border-gray-300 rounded-lg mb-4"
-          placeholder="Search by job title or company city..."
+          className="focus:outline-none focus:ring-1 focus:ring-[#21A753] w-full sm:w-[50%] px-4 py-2 outline-none border border-2 border-gray-300 rounded-lg mb-4"
+          placeholder="Search by job title"
         />
         <input
           type="number"
           value={minSalary}
           onChange={handleMinSalaryChange}
-          className="mx-2 w-full sm:w-[50%] px-4 py-2 outline-none border-2 border-gray-300 rounded-lg ml-0.5 mb-4"
+          className="focus:outline-none focus:ring-1 focus:ring-[#21A753] mx-2 w-full sm:w-[50%] px-4 py-2 outline-none border-2 border-gray-300 rounded-lg ml-0.5 mb-4"
           placeholder="Min Salary"
         />
         <div className="flex flex-row justify-center sm:justify-start">
@@ -90,15 +90,17 @@ const JobList = () => {
         </div>
       </div>
       </div>
+
       <div className='mx-6 flex items-center justify-center'>
       <p className="text-3xl font-semibold">Latest Job</p>
       </div>
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 text-gray-600 body-font my-10 mx-4">
+        
         {currentJobs.map((res) => (
           <Link
             to={`/job-vacancy/${res.id}`}
             key={res.id}
-            className="border-2 rounded-lg m-2"
+            className="border rounded-lg m-2 shadow-md"
           >
             <div className="h-48 relative">
               <img
@@ -117,17 +119,20 @@ const JobList = () => {
                   {res.company_city}
                 </p>
               </div>
-              <h2 className="text-gray-900 title-font text-lg font-medium">
-                {res.title}
-              </h2>
-              <p className="mt-1">
-                {formatRupiah(res.salary_min + '')}
-                <span className="text-sm font-light">/Month</span>
-              </p>
+              <h2 className="font-sans text-green-600 title-font text-lg font-bold mt-2">
+                    {res.title}
+                  </h2>
+                  <p className="mt-1">
+                  {formatRupiah(res.salary_min + '')} - {formatRupiah(res.salary_max + '')}/Month
+                  </p>
+                  <h2 className="font-sans text-gray-500 title-font text-sm font-medium mt-6">
+                  {handleText(res.job_description, 100) }
+                  </h2>
             </div>
           </Link>
         ))}
       </section>
+      
       <div className="flex justify-center my-4">
         {filteredData.length > jobsPerPage && (
           <nav className="inline-flex">

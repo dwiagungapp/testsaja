@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 
-const FormCreateJob = () => {
+const FormEditJob = () => {
   let { slug } = useParams();
   const { handleFunctions, state } = useContext(GlobalContext);
   let {
@@ -62,7 +62,7 @@ const FormCreateJob = () => {
     <>
       <div className="mt-8 md:mt-8 md:col-span-2">
         <h2 className="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">
-          Form Input Jobs{" "}
+          Form Edit Jobs{" "}
         </h2>
         <form onSubmit={handleSubmit} method="POST">
           <div className="shadow overflow-hidden sm:rounded-md">
@@ -246,4 +246,4 @@ const FormCreateJob = () => {
   );
 };
 
-export default FormCreateJob;
+export default FormEditJob;

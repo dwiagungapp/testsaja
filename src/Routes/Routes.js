@@ -14,17 +14,10 @@ import ListJob from "../components/dashboard/ListJob";
 import Profile from "../components/dashboard/Profile";
 import ChangePassword from "../components/dashboard/ChangePassword";
 import FormCreateJob from "../components/dashboard/FormCreateJob";
+import FormEditJob from "../components/dashboard/FormEditJob";
 
 const Pages = () => {
   const LoginRoute = (props) => {
-    if (Cookies.get("token") === undefined) {
-      return props.children;
-    } else {
-      return <Navigate to={"/"} />;
-    }
-  };
-
-  const RegisterRoute = (props) => {
     if (Cookies.get("token") === undefined) {
       return props.children;
     } else {
@@ -151,7 +144,7 @@ const Pages = () => {
             element={
               <DashboardRoute>
                 <DashboardComponent>
-                  <FormCreateJob />
+                  <FormEditJob />
                 </DashboardComponent>
               </DashboardRoute>
             }

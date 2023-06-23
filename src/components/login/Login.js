@@ -60,7 +60,7 @@ const Login = () => {
             type="text"
             placeholder="Email"
             name="email"
-            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#21A753]"
           />
         </div>
         <div className="mt-4">
@@ -72,17 +72,17 @@ const Login = () => {
             type="password"
             placeholder="Password"
             name="password"
-            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#21A753]"
           />
         </div>
         <div className="flex">
-          <button className="w-full px-6 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-400">
+          <button className="w-full px-6 py-2 mt-4 text-white bg-[#21A753] rounded-lg hover:bg-green-300">
             Login
           </button>
         </div>
         <div className="mt-6 text-grey-dark">
           Not have an account?
-          <a className="ml-2 text-blue-600 hover:underline" href="/register">
+          <a className="ml-2 text-[#21A753] hover:underline" href="/register">
             Register
           </a>
         </div>

@@ -1,20 +1,24 @@
 import { forwardRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon, LockClosedIcon, } from "@heroicons/react/24/solid";
+import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 
 const SideBar = forwardRef(({ showNav }, ref) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleNavigate = (path) => {
+    if (path === location.pathname) {
+      window.location.reload(); // Reload the document if the same path is clicked
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
     <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm border-r-2 border-gray-100">
       <div className="flex justify-center mt-6 mb-14">
         <picture>
-          <img
-            className="w-12 h-12"
-            src="/joblogo.png"
-            alt="logo"
-          />
+          <img className="w-12 h-12" src="/logosidebar.png" alt="logo" />
         </picture>
       </div>
 
@@ -25,7 +29,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               ? "bg-orange-100 text-orange-500"
               : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
           }`}
-          onClick={() => navigate("/")}
+          onClick={() => handleNavigate("/")}
         >
           <div className="mr-2">
             <HomeIcon className="h-5 w-5" />
@@ -40,7 +44,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               ? "bg-orange-100 text-orange-500"
               : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
           }`}
-          onClick={() => navigate("/dashboard/list-job-vacancy")}
+          onClick={() => handleNavigate("/dashboard/list-job-vacancy")}
         >
           <div className="mr-2">
             <TableCellsIcon className="h-5 w-5" />
@@ -55,7 +59,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               ? "bg-orange-100 text-orange-500"
               : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
           }`}
-          onClick={() => navigate("/dashboard/list-job-vacancy/form")}
+          onClick={() => handleNavigate("/dashboard/list-job-vacancy/form")}
         >
           <div className="mr-2">
             <BriefcaseIcon className="h-5 w-5" />
@@ -70,31 +74,15 @@ const SideBar = forwardRef(({ showNav }, ref) => {
               ? "bg-orange-100 text-orange-500"
               : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
           }`}
-          onClick={() => navigate("/dashboard/profile")}
+          onClick={() => handleNavigate("/dashboard/profile")}
         >
-          <div className="mr-2">
+          <div className="mr-2 flex flex-wrap">
             <UserIcon className="h-5 w-5" />
           </div>
           <div>
             <p>Profile</p>
           </div>
         </div>
-        <div
-          className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
-            location.pathname === "/dashboard/profile/change-password"
-              ? "bg-orange-100 text-orange-500"
-              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
-          }`}
-          onClick={() => navigate("/dashboard/profile/change-password")}
-        >
-          <div className="mr-2">
-            <LockClosedIcon className="h-5 w-5" />
-          </div>
-          <div>
-            <p>Change Password</p>
-          </div>
-        </div>
-
       </div>
     </div>
   );

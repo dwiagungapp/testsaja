@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Typewriter from "typewriter-effect";
 import { useNavigate } from "react-router-dom";
 
@@ -11,11 +11,11 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="pb-10" style={{ backgroundImage: "url('/banner.png')" }}>
+      <div className="pb-10 border-b" style={{ background: "url('/banner.png') no-repeat center/cover" }}>
         <div className="px-6 pt-32 lg:pt-48">
-          <div className="max-w-[650px] mx-auto flex flex-col gap-10">
+          <div className="max-w-[1000px] mx-auto flex flex-col gap-10">
             <div className="text-4xl md:text-5xl lg:text-6xl leading-tight">
-              <h3 className="mb-5">
+              <h3 className="mb-5 ">
                 <Typewriter
                   options={{
                     strings: ["Find A Job ", "Apply Online", "Get Hired !!!"],
@@ -26,7 +26,7 @@ const HeroSection = () => {
               </h3>
             </div>
             <div>
-              <p className="text-gray-600 text-lg md:text-xl leading-8">
+              <p className="font-sans text-gray-600 text-lg md:text-xl leading-8">
                 Hand-picked opportunities to work from home, remotely, freelance, full-time, part-time, contract, and internships.
               </p>
             </div>

@@ -5,7 +5,6 @@ import {
   ChevronDownIcon, UserIcon,
 } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
 import React from "react";
 import Cookies from "js-cookie";
 

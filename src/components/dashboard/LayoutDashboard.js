@@ -3,7 +3,6 @@ import SideBar from "./Sidebar";
 import TopBar from "./TopBar";
 import { Transition } from "@headlessui/react";
 import Footer from "./Footer";
-import Cookies from "js-cookie";
 
 const LayoutDashboard = (props) => {
   const [showNav, setShowNav] = useState(true);

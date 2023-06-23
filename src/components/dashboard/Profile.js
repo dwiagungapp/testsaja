@@ -1,8 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Cookies from "js-cookie";
-import { GlobalContext } from "../../context/GlobalContext";
-// components
 
 export default function Profile() {
   return (

@@ -18,6 +18,11 @@ module.exports = {
                 darkGrayishBlue: 'hsl(227, 12%, 61%)',
                 veryDarkBlue: 'hsl(233, 12%, 13%)',
             },
+
+            fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+              },
+              
         },
     },
     plugins: [],

@@ -10,38 +10,38 @@ const NavbarBeranda = () => {
   return (
     <>
       <header className="border-b border-gray-300 bg-white py-4 sticky top-0 z-10">
-        <div className="flex items-center justify-between xl:max-w-7xl mx-auto max-w-full px-[8%] flex-wrap w-full">
-          <img
-            src="/joblogo.png"
+        <div className="flex items-center justify-between xl:max-w-7xl mx-auto max-w-full px-[5%] flex-wrap w-full">
+        <Link reloadDocument to="/"> <img
+            src="/logonice.png"
             alt="Logo"
-            className="h-12"
-          />
+            className="h-12 w-48"
+          /> </Link>
 
           <FiMenu className="lg:hidden block h-6 w-6 cursor-pointer" onClick={() => setOpen(!open)} />
 
           <nav className={`${open ? "block" : "hidden"} w-full lg:flex items-center lg:w-auto`}>
-            <ul className="text-base text-gray-600 lg:flex lg:justify-between">
+            <ul className="text-base font-sans text-gray-600 lg:flex lg:justify-between">
               <li>
-                <Link
+                <Link reloadDocument
                   to="/"
-                  className={`lg:px-5 py-2 block hover:text-[#21A753] font-semibold ${location.pathname === '/' ? 'text-[#21A753]' : ''}`}
+                  className={`lg:px-5 py-2 block hover:text-[#21A753] font-sans font-semibold ${location.pathname === '/' ? 'text-[#21A753]' : ''}`}
                 >
                   Home
                 </Link>
               </li>
               <li>
-                <Link
+                <Link reloadDocument
                   to="/job-vacancy"
-                  className={`lg:px-5 py-2 block hover:text-[#21A753] font-semibold ${location.pathname === '/job-vacancy' ? 'text-[#21A753]' : ''}`}
+                  className={`lg:px-5 py-2 block hover:text-[#21A753] font-sans font-semibold ${location.pathname === '/job-vacancy' ? 'text-[#21A753]' : ''}`}
                 >
                   Lowongan
                 </Link>
               </li>
               <li>
                 {!Cookies.get("token") && (
-                  <Link
+                  <Link reloadDocument
                     to="/register"
-                    className="lg:px-5 py-2 block hover:text-[#21A753] font-semibold"
+                    className="lg:px-5 py-2 block hover:text-[#21A753] font-sans font-semibold"
                   >
                     Register
                   </Link>
@@ -49,9 +49,9 @@ const NavbarBeranda = () => {
               </li>
               <li>
                 {!Cookies.get("token") && (
-                  <Link
+                  <Link reloadDocument
                     to="/login"
-                    className="px-6 py-2 block bg-[#21A753] text-white rounded-lg"
+                    className="px-6 py-2 block bg-[#21A753] text-white font-sans rounded-lg"
                   >
                     Login
                   </Link>
@@ -59,7 +59,7 @@ const NavbarBeranda = () => {
               </li>
               <li>
                 {Cookies.get("token") && (
-                  <Link
+                  <Link reloadDocument
                     to="/dashboard/list-job-vacancy"
                     className={`lg:px-5 py-2 block hover:text-[#21A753] font-semibold ${location.pathname.startsWith('/dashboard/list-job-vacancy') ? 'text-[#21A753]' : ''}`}
                   >
