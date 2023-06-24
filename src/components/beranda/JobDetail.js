@@ -18,11 +18,9 @@ const JobDetail = () => {
 
   useEffect(() => {
     if (Id !== undefined) {
-      axios
-        .get(`https://dev-example.sanbercloud.com/api/job-vacancy/${Id}`)
-        .then((res) => {
-          setData(res.data);
-        });
+      axios.get(`https://dev-example.sanbercloud.com/api/job-vacancy/${Id}`).then((res) => {
+        setData(res.data);
+      });
     }
   }, []);
 
@@ -67,26 +65,26 @@ const JobDetail = () => {
       <div className="flex flex-col items-center my-10 px-4 sm:px-8 md:px-16">
         <div className="bg-white border max-w-4xl w-full">
           <div className="">
-            <img src={data?.company_image_url} alt="Company" className="w-full h-80 border-b" />
+            <img src={data?.company_image_url} alt="Company" className="w-full h-60" />
           </div>
           <div className="px-6 py-4">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
               <div className="flex items-center mb-4 md:mb-0">
-                <img alt="Company Foto" src={data?.company_image_url} className="rounded-lg h-10 w-10 mr-10" />
+                <img alt="Company Foto" src={data?.company_image_url} className="object-cover object-contain rounded-lg h-10 w-10 mr-3" />
                 <div>
                   <h3 className="text-lg leading-6 font-bold text-gray-900">{data?.title}</h3>
                   <h3 className="text-sm leading-6 font-small text-[#21a753]">{data?.company_name}</h3>
-                  <div className="flex my-2">
-                    <AiOutlineEnvironment />
-                    <p className="ml-2 max-w-2xl text-sm text-gray-500">{data?.company_city}</p>
+                  <div className="flex items-center my-2">
+                    <AiOutlineEnvironment className="mr-1" />
+                    <p className="text-sm text-gray-500">{data?.company_city}</p>
                   </div>
-                  <p className="mt-1 max-w-2xl text-sm text-gray-500">{data?.created_at}</p>
+                  <p className="mt-1 text-sm text-gray-500">{data?.created_at}</p>
                 </div>
               </div>
               {token && (
                 <button
                   type="button"
-                  className="bg-[#21A753] hover:opacity-80 text-white font-medium p-3 rounded-lg"
+                  className="bg-[#21A753] hover:opacity-80 text-white font-medium p-2 rounded"
                   onClick={handleApplyNow}
                 >
                   Lamar sekarang
@@ -100,25 +98,23 @@ const JobDetail = () => {
       <div className="flex flex-col items-center my-10 px-4 sm:px-8 md:px-16">
         <div className="bg-white max-w-4xl w-full border">
           <div className="px-6 py-4">
-            <div className="py-4 flex flex-col">
-            <div className="mb-4">
-            <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Description</h4>
-            <ul className="list-disc list-inside text-sm text-gray-500">
-              {data?.job_description.split('\n').map((line, index) => (
-                <li key={index}>{line}</li>
-              ))}
-            </ul>
-          </div>
+            <div className="pb-4">
+              <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Description</h4>
+              <ul className="list-disc list-inside text-sm text-gray-500">
+                {data?.job_description.split('\n').map((line, index) => (
+                  <li key={index}>{line}</li>
+                ))}
+              </ul>
+            </div>
 
-              <div className="mb-4">
-                <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Qualification</h4>
-                <p className="text-sm text-gray-500">{data?.job_qualification}</p>
-              </div>
+            <div className="pb-4">
+              <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Qualification</h4>
+              <p className="text-sm text-gray-500">{data?.job_qualification}</p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap max-w-4xl border w-full p-2">
+        <div className="flex flex-wrap max-w-4xl border w-full p-2 mt-8">
           <div className="m-4">
             <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Type</h4>
             <p className="text-sm text-gray-500">{data?.job_type}</p>
@@ -135,11 +131,11 @@ const JobDetail = () => {
           </div>
 
           <div className="m-4">
-          <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Salary</h4>
-          <p className="text-sm text-gray-500">
-            {formatRupiah(data?.salary_min + '')} - {formatRupiah(data?.salary_max + '')}/Month
-          </p>
-        </div>
+            <h4 className="text-lg leading-6 font-bold text-gray-900 mb-2">Job Salary</h4>
+            <p className="text-sm text-gray-500">
+              {formatRupiah(data?.salary_min + '')} - {formatRupiah(data?.salary_max + '')}/Month
+            </p>
+          </div>
         </div>
       </div>
     </>

@@ -15,6 +15,7 @@ const FormCreateJob = () => {
     input,
     setInput,
     setCurrentIndex,
+    currentIndex,
   
   } = state;
  
@@ -41,6 +42,7 @@ const FormCreateJob = () => {
           setCurrentIndex(data.id);
         });
     }
+  
     return () => {
       setInput({
         title: "",
@@ -56,11 +58,24 @@ const FormCreateJob = () => {
         salary_max: "",
       });
     };
-  }, []);
+  }, [slug, setInput, setCurrentIndex, currentIndex]);
+
+  const inputPlaceholders = {
+    title: "Enter the job title",
+    company_name: "Enter the company name",
+    company_image_url: "Enter the company image URL",
+    company_city: "Enter the company city",
+    job_qualification: "Enter the job qualification",
+    job_description: "Enter the job description",
+    job_type: "Enter the job type",
+    job_tenure: "Enter the job tenure",
+    salary_min: "Enter the minimum salary",
+    salary_max: "Enter the maximum salary",
+  };
 
   return (
     <>
-      <div className="mt-8 md:mt-8 md:col-span-2">
+      <div className="pt-10 md:col-span-2">
         <h2 className="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">
           Form Input Jobs{" "}
         </h2>
@@ -77,6 +92,7 @@ const FormCreateJob = () => {
                     value={input.title}
                     type="text"
                     name="title"
+                    placeholder={inputPlaceholders.title}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -91,6 +107,7 @@ const FormCreateJob = () => {
                     value={input.company_name}
                     type="text"
                     name="company_name"
+                    placeholder={inputPlaceholders.company_name}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -104,6 +121,7 @@ const FormCreateJob = () => {
                     value={input.company_image_url}
                     type="text"
                     name="company_image_url"
+                    placeholder={inputPlaceholders.company_image_url}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -118,6 +136,7 @@ const FormCreateJob = () => {
                     value={input.company_city}
                     type="text"
                     name="company_city"
+                    placeholder={inputPlaceholders.company_city}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -131,6 +150,7 @@ const FormCreateJob = () => {
                     value={input.job_qualification}
                     type="text"
                     name="job_qualification"
+                    placeholder={inputPlaceholders.job_qualification}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -144,15 +164,14 @@ const FormCreateJob = () => {
                     onChange={handleChange}
                     value={input.job_description}
                     name="job_description"
+                    placeholder={inputPlaceholders.job_description}
                     required
-                    className="mt-1 block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
+                    className="mt-1 block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600 h-48 resize-none"
                   ></textarea>
                 </div>
 
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label
-                    className="block text-sm font-medium text-gray-700"
-                  >
+                  <label className="block text-sm font-medium text-gray-700">
                     Job Status
                   </label>
                   <input
@@ -161,7 +180,6 @@ const FormCreateJob = () => {
                     type="radio"
                     name="job_status_0"
                     value="0"
-                    
                   />
                   Ditutup
                   <input
@@ -170,7 +188,6 @@ const FormCreateJob = () => {
                     type="radio"
                     name="job_status_1"
                     value="1"
-                    
                   />
                   Dibuka
                 </div>
@@ -184,6 +201,7 @@ const FormCreateJob = () => {
                     value={input.job_type}
                     type="text"
                     name="job_type"
+                    placeholder={inputPlaceholders.job_type}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -198,6 +216,7 @@ const FormCreateJob = () => {
                     value={input.job_tenure}
                     type="text"
                     name="job_tenure"
+                    placeholder={inputPlaceholders.job_tenure}
                     required
                     className="mt-1 block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -211,6 +230,7 @@ const FormCreateJob = () => {
                     value={input.salary_min}
                     type="text"
                     name="salary_min"
+                    placeholder={inputPlaceholders.salary_min}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -225,6 +245,7 @@ const FormCreateJob = () => {
                     value={input.salary_max}
                     type="text"
                     name="salary_max"
+                    placeholder={inputPlaceholders.salary_max}
                     required
                     className="mt-1  block w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"
                   />
@@ -242,6 +263,7 @@ const FormCreateJob = () => {
           </div>
         </form>
       </div>
+      <div className="pb-10"></div>
     </>
   );
 };

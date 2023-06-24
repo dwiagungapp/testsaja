@@ -56,7 +56,7 @@ const JobListHome = () => {
                   <h2 className="font-sans text-green-600 title-font text-lg font-bold mt-2">
                     {res.title}
                   </h2>
-                  <p className="mt-1">
+                  <p className="mt-1 text-sm">
                     {formatRupiah(res.salary_min + '')} - {formatRupiah(res.salary_max + '')}/Month
                   </p>
                   <h2 className="font-sans text-gray-500 title-font text-sm font-medium mt-6">

@@ -4,12 +4,12 @@ import Cookies from "js-cookie";
 export default function Profile() {
   return (
     <>
-    <div className="mt-8 md:mt-8 md:col-span-2">
+    <div className="pt-10 md:col-span-2">
     <h1 className="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">
       {" "}
       Data Profile
     </h1></div>
-      <div className="flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl pt-10 rounded-lg border-2 border-gray-50 mt-6">
+      <div className="flex flex-col bg-white min-w-0 break-words w-full mb-6 shadow-md pt-10 rounded-lg border-2 border-gray-50 mt-6">
         <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4 flex justify-center">
@@ -41,7 +41,7 @@ export default function Profile() {
             <div className="flex flex-wrap justify-center">
               <a
                 href="/dashboard/profile/change-password"
-                className="text-base font-semibold text-white bg-orange-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-70 transition duration-300 ease-in-out"
+                className="text-base font-semibold text-white bg-[#21a753] py-3 px-8 rounded-full hover:shadow-lg hover:opacity-70 transition duration-300 ease-in-out"
               >
                 Change Password
               </a>
@@ -49,6 +49,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <div className="pb-10"></div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
+import { HomeIcon, TableCellsIcon, BriefcaseIcon, UserIcon, RectangleGroupIcon } from "@heroicons/react/24/solid";
 
 const SideBar = forwardRef(({ showNav }, ref) => {
   const navigate = useNavigate();
@@ -26,8 +26,8 @@ const SideBar = forwardRef(({ showNav }, ref) => {
         <div
           className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
             location.pathname === "/"
-              ? "bg-orange-100 text-orange-500"
-              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
+              ? "bg-[#21a753] text-white"
+              : "text-gray-400 hover:bg-green-100 hover:text-green-500"
           }`}
           onClick={() => handleNavigate("/")}
         >
@@ -40,14 +40,14 @@ const SideBar = forwardRef(({ showNav }, ref) => {
         </div>
         <div
           className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
-            location.pathname === "/dashboard/list-job-vacancy"
-              ? "bg-orange-100 text-orange-500"
-              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
+            location.pathname === "/dashboard"
+              ? "bg-[#21a753] text-white"
+              : "text-gray-400 hover:bg-green-100 hover:text-green-500"
           }`}
-          onClick={() => handleNavigate("/dashboard/list-job-vacancy")}
+          onClick={() => handleNavigate("/dashboard")}
         >
           <div className="mr-2">
-            <TableCellsIcon className="h-5 w-5" />
+            <RectangleGroupIcon className="h-5 w-5" />
           </div>
           <div>
             <p>Dashboard</p>
@@ -55,9 +55,24 @@ const SideBar = forwardRef(({ showNav }, ref) => {
         </div>
         <div
           className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
+            location.pathname === "/dashboard/list-job-vacancy"
+              ? "bg-[#21a753] text-white"
+              : "text-gray-400 hover:bg-green-100 hover:text-green-500"
+          }`}
+          onClick={() => handleNavigate("/dashboard/list-job-vacancy")}
+        >
+          <div className="mr-2">
+            <TableCellsIcon className="h-5 w-5" />
+          </div>
+          <div>
+            <p>List Job</p>
+          </div>
+        </div>
+        <div
+          className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
             location.pathname === "/dashboard/list-job-vacancy/form"
-              ? "bg-orange-100 text-orange-500"
-              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
+              ? "bg-[#21a753] text-white"
+              : "text-gray-400 hover:bg-green-100 hover:text-green-500"
           }`}
           onClick={() => handleNavigate("/dashboard/list-job-vacancy/form")}
         >
@@ -71,8 +86,8 @@ const SideBar = forwardRef(({ showNav }, ref) => {
         <div
           className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors ${
             location.pathname === "/dashboard/profile"
-              ? "bg-orange-100 text-orange-500"
-              : "text-gray-400 hover:bg-orange-100 hover:text-orange-500"
+              ? "bg-[#21a753] text-white"
+              : "text-gray-400 hover:bg-green-100 hover:text-green-500"
           }`}
           onClick={() => handleNavigate("/dashboard/profile")}
         >

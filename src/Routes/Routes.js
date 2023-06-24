@@ -1,7 +1,7 @@
 import React from "react";
 import Cookies from "js-cookie";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import LayoutComponent from "../components/Layout";
+import LayoutComponent from "../components/beranda/Layout";
 import LayoutJobVacancy from "../components/beranda/LayoutJobVacancy";
 import DashboardComponent from "../components/dashboard/LayoutDashboard";
 import { GlobalProvider } from "../context/GlobalContext";
@@ -10,13 +10,13 @@ import Login from "../components/login/Login";
 import Register from "../components/register/Register";
 import JobDetail from "../components/beranda/JobDetail";
 import JobList from "../components/beranda/JobList";
-import NotFound from "../components/NotFound";
 import ListJob from "../components/dashboard/ListJob";
 import Profile from "../components/dashboard/Profile";
 import ChangePassword from "../components/dashboard/ChangePassword";
 import FormCreateJob from "../components/dashboard/FormCreateJob";
 import FormEditJob from "../components/dashboard/FormEditJob";
-import WelcomeSection from "../components/beranda/WelcomeSection";
+import NotFound from "../components/errorpages/NotFound";
+import WelcomeDashboard from "../components/dashboard/WelcomeDashboard";
 
 const Pages = () => {
   const LoginRoute = (props) => {
@@ -83,7 +83,7 @@ const Pages = () => {
             path="/job-vacancy"
             element={
               <LayoutJobVacancy>
-                <WelcomeSection />
+                <JobList />
               </LayoutJobVacancy>
             }
           />
@@ -92,8 +92,19 @@ const Pages = () => {
             path="*"
             element={
               <LayoutComponent>
-                <NotFound />
+                <NotFound/>
               </LayoutComponent>
+            }
+          />
+
+          <Route
+            path="/dashboard"
+            element={
+              <DashboardRoute>
+                <DashboardComponent>
+                  <WelcomeDashboard />
+                </DashboardComponent>
+              </DashboardRoute>
             }
           />
 

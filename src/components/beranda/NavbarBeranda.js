@@ -14,7 +14,7 @@ const NavbarBeranda = () => {
         <Link reloadDocument to="/"> <img
             src="/logonice.png"
             alt="Logo"
-            className="h-12 w-48"
+            className="h-8 w-48"
           /> </Link>
 
           <FiMenu className="lg:hidden block h-6 w-6 cursor-pointer" onClick={() => setOpen(!open)} />
@@ -60,7 +60,7 @@ const NavbarBeranda = () => {
               <li>
                 {Cookies.get("token") && (
                   <Link reloadDocument
-                    to="/dashboard/list-job-vacancy"
+                    to="/dashboard"
                     className={`lg:px-5 py-2 block hover:text-[#21A753] font-semibold ${location.pathname.startsWith('/dashboard/list-job-vacancy') ? 'text-[#21A753]' : ''}`}
                   >
                     Dashboard

@@ -87,7 +87,7 @@ const ChangePassword = () => {
                 />
               </div>
               <div class="flex">
-                <button class="w-full px-6 py-2 mt-4 text-white bg-orange-500 rounded-lg hover:bg-orange-400">
+                <button class="w-full px-6 py-2 mt-4 text-white bg-[#21a753] rounded-lg hover:opacity-70">
                   Change Password
                 </button>
               </div>

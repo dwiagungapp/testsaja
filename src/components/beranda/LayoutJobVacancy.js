@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Footer";
+import Footer from "./Footer";
 import NavbarJobVacancy from "../beranda/NavbarJobVacancy";
 
 const LayoutJobVacancy = (props) => {

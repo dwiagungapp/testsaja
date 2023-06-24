@@ -8,7 +8,7 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = (props) => {
   let navigate = useNavigate();
-  const [dataJob, setDataJob] = useState([]);
+
   const [searchStatus, setSearchStatus] = useState(true);
 
   const [input, setInput] = useState({
@@ -136,12 +136,6 @@ export const GlobalProvider = (props) => {
     console.log(idJob);
   };
 
-  const handleShow = (event) => {
-    let idJob = parseInt(event.target.getAttribute("value"));
-    navigate(`/job-vacancy/${idJob}`);
-    // console.log(idJob);
-  };
-
   const handleDelete = (event) => {
     let idData = parseInt(event.target.value);
     
@@ -159,7 +153,7 @@ export const GlobalProvider = (props) => {
               headers: { Authorization: "Bearer " + Cookies.get("token") },
             })
           .then((res) => {
-            swal('Success', 'Data has been deleted!', 'success');
+            swal('Success', 'Data has been deleted! Please refresh the page.', 'success');
             setFetchStatus(true);
           });
       }
@@ -211,7 +205,6 @@ export const GlobalProvider = (props) => {
     handleSubmit,
     handleChange,
     handleEdit,
-    handleShow,
     handleDelete,
     handleStatus,
     formatRupiah,
@@ -219,8 +212,6 @@ export const GlobalProvider = (props) => {
   };
 
   let state = {
-    dataJob,
-    setDataJob,
     input,
     setInput,
     currentIndex,

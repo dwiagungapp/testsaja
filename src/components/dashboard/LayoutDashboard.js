@@ -48,7 +48,7 @@ const LayoutDashboard = (props) => {
           showNav && !isMobile ? "pl-56" : ""
         }`}
       >
-        <div className="px-4 md:px-16">{props.children}</div>
+        <div className="px-4 md:px-16 bg-[#edf1f5]">{props.children}</div>
         <Footer/>
       </main>
     </>

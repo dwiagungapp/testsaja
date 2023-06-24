@@ -35,15 +35,15 @@ const ListJob = () => {
 
   return (
     <>
-      <div className="container max-w-7xl mx-auto mt-8">
-        <div className="mb-4">
+      <div className="container max-w-7xl mx-auto">
+        <div className="mb-4 pt-10">
           <h1 className="font-bold text-dark text-3xl mb-5 max-w-md lg:text-3xl">
             {" "}
             Data List Job
           </h1>
           <div className="flex justify-end">
             <Link to="/dashboard/list-job-vacancy/form">
-              <button className="px-4 py-2 rounded-md bg-orange-500 text-white hover:bg-orange-400">
+              <button className="px-4 py-2 rounded-md bg-[#21a753] text-white hover:bg-green-500">
                 Create Job
               </button>
             </Link>
@@ -98,22 +98,22 @@ const ListJob = () => {
               </td>
               <td className="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
               <button
-  onClick={handleEdit}
-  value={res.id}
-  type="button"
-  className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 mr-2 mb-2"
->
-  <FaEdit />
-</button>
+                onClick={handleEdit}
+                value={res.id}
+                type="button"
+                className="text-gray-700 transition-colors duration-150 bg-white rounded-full focus:shadow-outline hover:bg-blue-700 hover:text-white px-2 py-2.5 mt-2 mb-2"
+              >
+                <FaEdit />
+              </button>
 
-<button
-  onClick={handleDelete}
-  value={res.id}
-  type="button"
-  className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
->
-  <FaTrash />
-</button>
+              <button
+                onClick={handleDelete}
+                value={res.id}
+                type="button"
+                className="text-gray-700 transition-colors duration-150 bg-white rounded-full focus:shadow-outline hover:bg-red-600 hover:text-white px-2 py-2.5 mr-2 mb-2"
+              >
+                <FaTrash />
+              </button>
               </td>
               </tr>
                       </React.Fragment>
@@ -126,13 +126,13 @@ const ListJob = () => {
         </div>
         {/* Pagination */}
         {data !== null && data.length > jobsPerPage && (
-          <ul className="flex justify-center mt-4">
+          <ul className="flex justify-center mt-4 pb-4">
             {Array.from({ length: Math.ceil(data.length / jobsPerPage) }).map(
               (item, index) => (
                 <li
                   key={index}
                   className={`px-2 py-1 cursor-pointer ${
-                    currentPage === index + 1 ? "bg-blue-500 text-white" : ""
+                    currentPage === index + 1 ? "bg-[#f05323] text-white" : ""
                   }`}
                   onClick={() => paginate(index + 1)}
                 >
@@ -143,6 +143,7 @@ const ListJob = () => {
           </ul>
         )}
       </div>
+      <div className="pb-10"></div>
     </>
   );
 };

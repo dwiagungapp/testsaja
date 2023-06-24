@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
-import NavbarBeranda from "./beranda/NavbarBeranda";
+import NavbarBeranda from "./NavbarBeranda";
 
 const LayoutComponent = (props) => {
   return (
