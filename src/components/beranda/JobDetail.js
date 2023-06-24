@@ -75,7 +75,7 @@ const JobDetail = () => {
                 <img alt="Company Foto" src={data?.company_image_url} className="rounded-lg h-10 w-10 mr-10" />
                 <div>
                   <h3 className="text-lg leading-6 font-bold text-gray-900">{data?.title}</h3>
-                  <h3 className="text-sm leading-6 font-small text-gray-900">{data?.company_name}</h3>
+                  <h3 className="text-sm leading-6 font-small text-[#21a753]">{data?.company_name}</h3>
                   <div className="flex my-2">
                     <AiOutlineEnvironment />
                     <p className="ml-2 max-w-2xl text-sm text-gray-500">{data?.company_city}</p>

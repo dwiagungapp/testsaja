@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="pb-10 border-b" style={{ background: "url('/banner.png') no-repeat center/cover" }}>
+      <div className="pb-10 border-b bg-blend-multiply" style={{ background: "url('/banner.png') no-repeat center/cover" }}>
         <div className="px-6 pt-32 lg:pt-48">
           <div className="max-w-[1000px] mx-auto flex flex-col gap-10">
             <div className="text-4xl md:text-5xl lg:text-6xl leading-tight">

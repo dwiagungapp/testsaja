@@ -5,19 +5,28 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const companies = [
   {
-    image: 'https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/intel-logo.png',
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/Bank_Central_Asia.jpg',
   },
   {
-    image: 'https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/google-logo.png',
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/sampoerna.jpg',
   },
   {
-    image: 'https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/microsoft-logo.png',
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/Telkom_Indonesia.jpg',
+  },
+  {
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/unilever.jpg',
+  },
+  {
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/Astra-Internasional.jpg',
+  },
+  {
+    image: 'https://marcopolis.net/images/stories/indonesia-report/2016/companies/Bank-Rakyat-Indonesia.jpg',
+  },
+  {
+    image: 'https://investinasia.id/blog/wp-content/uploads/2023/05/indofood-logo.webp',
   },
   {
     image: 'https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/samsung-logo.png',
-  },
-  {
-    image: 'https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/nescafe-logo.png',
   },
   // Tambahkan daftar perusahaan lainnya di sini
 ];
@@ -27,7 +36,7 @@ const TopCompanies = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {

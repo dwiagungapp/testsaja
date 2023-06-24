@@ -161,7 +161,7 @@ const FormCreateJob = () => {
                     type="radio"
                     name="job_status_0"
                     value="0"
-                    required
+                    
                   />
                   Ditutup
                   <input
@@ -170,7 +170,7 @@ const FormCreateJob = () => {
                     type="radio"
                     name="job_status_1"
                     value="1"
-                    required
+                    
                   />
                   Dibuka
                 </div>

@@ -7,7 +7,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 const JobListHome = () => {
   const { handleFunctions } = useContext(GlobalContext);
   const [data, setData] = useState(null);
-  const { formatRupiah, handleText} = handleFunctions;
+  const { formatRupiah, handleText } = handleFunctions;
 
   useEffect(() => {
     axios
@@ -34,7 +34,7 @@ const JobListHome = () => {
               <Link
                 to={`/job-vacancy/${res.id}`}
                 key={res.id}
-                className="border shadow-md rounded-lg m-2"
+                className="border shadow-md m-2 hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-48 relative">
                   <img
@@ -57,18 +57,20 @@ const JobListHome = () => {
                     {res.title}
                   </h2>
                   <p className="mt-1">
-                  {formatRupiah(res.salary_min + '')} - {formatRupiah(res.salary_max + '')}/Month
+                    {formatRupiah(res.salary_min + '')} - {formatRupiah(res.salary_max + '')}/Month
                   </p>
                   <h2 className="font-sans text-gray-500 title-font text-sm font-medium mt-6">
-                  {handleText(res.job_description, 100) }
+                    {handleText(res.job_description, 100)}
                   </h2>
                 </div>
               </Link>
             ))}
       </div>
-      <div className="flex items-center justify-center mb-10">
-        <button className="bg-[#21A753] text-white px-4 py-4 rounded-lg transition duration-300 hover:opacity-80">
-          <Link to="/job-vacancy">Lihat lebih banyak lowongan</Link>
+
+      <div className="flex items-center justify-center mb-10 ">
+        <button className="px-4 py-4 rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+          <Link to="/job-vacancy"><span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+          <span className="relative">Lihat lebih banyak lowongan</span></Link>
         </button>
       </div>
     </>

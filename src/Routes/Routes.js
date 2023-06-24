@@ -2,6 +2,7 @@ import React from "react";
 import Cookies from "js-cookie";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import LayoutComponent from "../components/Layout";
+import LayoutJobVacancy from "../components/beranda/LayoutJobVacancy";
 import DashboardComponent from "../components/dashboard/LayoutDashboard";
 import { GlobalProvider } from "../context/GlobalContext";
 import JobHome from "../components/beranda/JobHome";
@@ -15,6 +16,7 @@ import Profile from "../components/dashboard/Profile";
 import ChangePassword from "../components/dashboard/ChangePassword";
 import FormCreateJob from "../components/dashboard/FormCreateJob";
 import FormEditJob from "../components/dashboard/FormEditJob";
+import WelcomeSection from "../components/beranda/WelcomeSection";
 
 const Pages = () => {
   const LoginRoute = (props) => {
@@ -80,9 +82,9 @@ const Pages = () => {
           <Route
             path="/job-vacancy"
             element={
-              <LayoutComponent>
-                <JobList />
-              </LayoutComponent>
+              <LayoutJobVacancy>
+                <WelcomeSection />
+              </LayoutJobVacancy>
             }
           />
 
