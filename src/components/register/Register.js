@@ -29,7 +29,7 @@ const Register = () => {
       })
       .then((res) => {
         alert("Akun berhasil dibuat");
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);

@@ -33,7 +33,7 @@ const Login = () => {
         Cookies.set("image_url", data.user.image_url, { expires: 1 });
 
         // Cookies.set("user", JSON.stringify(data.user), { expires: 1 });
-        navigate("/dashboard/list-job-vacancy");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);

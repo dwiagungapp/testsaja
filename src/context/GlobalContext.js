@@ -171,25 +171,20 @@ export const GlobalProvider = (props) => {
   
   const formatRupiah = (angka) => {
     if (angka !== null) {
-      var number_string = angka.toString(),
-        split = number_string.split(","),
-        sisa = split[0].length % 3,
-        rupiah = split[0].substr(0, sisa),
-        ribuan = split[0].substr(sisa).match(/\d{3}/gi),
-        separator;
-
-      // tambahkan titik jika yang di input sudah menjadi angka ribuan
-      if (ribuan) {
-        separator = sisa ? "." : "";
-        rupiah += separator + ribuan.join(".");
+      var number = parseInt(angka);
+      var million = number / 1000000; // Convert to million
+      var formattedValue = million.toFixed(1).toString(); // Format with one decimal place and convert to string
+  
+      // Remove trailing zero and decimal point if present
+      if (formattedValue.indexOf('.') !== -1) {
+        formattedValue = formattedValue.replace(/\.?0+$/, '');
       }
-
-      rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
-      return rupiah === "0" ? "Free" : "Rp" + rupiah + "";
+  
+      return formattedValue + " juta";
     } else {
-      return "Free";
+      return "";
     }
-  };
+  };  
 
   const handleText = (text, max) => {
     if (text === null) {

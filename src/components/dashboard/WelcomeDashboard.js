@@ -21,13 +21,31 @@ const WelcomeDashboard = () => {
       company: "123 Industries",
       status: "Rejected",
     },
+    {
+        id: 4,
+        title: "React JS Frontend",
+        company: "Sanbercode",
+        status: "Rejected",
+      },
+      {
+        id: 5,
+        title: "Fullstack Programmer",
+        company: "Wahidev",
+        status: "Approved",
+      },
+      {
+        id: 6,
+        title: "QC Manager",
+        company: "Tempo Scan Pacific",
+        status: "Approved",
+      },
   ];
 
   return (
     <>
       <h2 className="font-bold text-dark text-3xl mb-5 pl-4 pt-10 lg:text-3xl">
         {" "}
-        Welcome {Cookies.get("name")} 👋
+        Welcome, {Cookies.get("name")} 👋
       </h2>
       <div className="flex flex-wrap mb-2">
         <div className="w-full md:w-1/2 xl:w-1/3 pt-3 px-3 md:pr-2">

@@ -76,13 +76,14 @@ const ListJob = () => {
             </tr>
           </thead>
           <tbody className="bg-white">
-                  {currentJobs.map((res, index) => {
-                    return (
-                      <React.Fragment key={res.id}>
-                        <tr>
-              <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                <div className="flex items-center">{index + 1}</div>
-              </td>
+          {currentJobs.map((res, index) => {
+  const jobIndex = firstIndex + index + 1;
+  return (
+    <React.Fragment key={res.id}>
+      <tr>
+        <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+          <div className="flex items-center">{jobIndex}</div>
+        </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                 <div className="text-sm leading-5 text-gray-900">
                   {res.title}
@@ -101,7 +102,7 @@ const ListJob = () => {
                 onClick={handleEdit}
                 value={res.id}
                 type="button"
-                className="text-gray-700 transition-colors duration-150 bg-white rounded-full focus:shadow-outline hover:bg-blue-700 hover:text-white px-2 py-2.5 mt-2 mb-2"
+                className="text-gray-700 transition-colors duration-150 bg-white rounded-full focus:shadow-outline hover:bg-[#21a753] hover:text-white px-2 py-2.5 mt-2 mb-2"
               >
                 <FaEdit />
               </button>
@@ -132,7 +133,7 @@ const ListJob = () => {
                 <li
                   key={index}
                   className={`px-2 py-1 cursor-pointer ${
-                    currentPage === index + 1 ? "bg-[#f05323] text-white" : ""
+                    currentPage === index + 1 ? "bg-[#21a753] hover:opacity-70 text-white" : ""
                   }`}
                   onClick={() => paginate(index + 1)}
                 >

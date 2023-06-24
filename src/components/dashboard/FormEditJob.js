@@ -234,7 +234,7 @@ const FormEditJob = () => {
             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button
                 type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-400 focus:outline-none focus:ring-2 "
+                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#21a753] hover:opacity-70 focus:outline-none focus:ring-2 "
               >
                 Save
               </button>

@@ -18,7 +18,7 @@ export default function TopBar({ showNav, setShowNav }) {
 
   return (
     <div
-      className={`fixed bg-[#2F323E] w-full h-16 flex justify-between items-center transition-all duration-[400ms] ${
+      className={`fixed bg-[#2F323E] w-full h-16 flex justify-between items-center transition-all duration-[400ms] z-10 ${
         showNav ? "pl-56" : ""
       }`}
     >
@@ -62,8 +62,8 @@ export default function TopBar({ showNav, setShowNav }) {
                     <a
                       href="/dashboard/profile"
                       className={`${
-                        active ? "bg-orange-500 text-white" : "text-gray-700"
-                      } flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center`}
+                        active ? "bg-[#21a753] text-white" : "text-gray-700"
+                      } flex hover:pacity-70 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center`}
                     >
                       <UserIcon className="h-4 w-4 mr-2" />
                       Profile
@@ -76,8 +76,8 @@ export default function TopBar({ showNav, setShowNav }) {
                       href="/"
                       onClick={handleLogout}
                       className={`${
-                        active ? "bg-orange-500 text-white" : "text-gray-700"
-                      } flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center`}
+                        active ? "bg-[#21a753] text-white" : "text-gray-700"
+                      } flex hover:opacity-70 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center`}
                     >
                       <ArrowLeftOnRectangleIcon className="h-4 w-4 mr-2" />
                       Logout

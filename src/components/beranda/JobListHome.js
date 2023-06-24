@@ -24,7 +24,7 @@ const JobListHome = () => {
   return (
     <>
       <div className="mx-6 flex items-center justify-center">
-        <p className="font-sans mt-10 text-3xl font-semibold">Find your jobs</p>
+        <p className="font-sans mt-10 text-3xl font-semibold">Latest Jobs</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 text-gray-600 body-font my-10 mx-4">
         {data !== null &&
@@ -36,10 +36,10 @@ const JobListHome = () => {
                 key={res.id}
                 className="border shadow-md m-2 hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-48 relative">
+                <div className="h-24 relative">
                   <img
                     alt="companylogo"
-                    className="object-cover object-center w-full h-full"
+                    className="object-cover object-center border-t border-b-2 px-4 w-full h-full"
                     src={res.company_image_url}
                   />
                 </div>
@@ -56,7 +56,7 @@ const JobListHome = () => {
                   <h2 className="font-sans text-green-600 title-font text-lg font-bold mt-2">
                     {res.title}
                   </h2>
-                  <p className="mt-1 text-sm">
+                  <p className="mt-1 text-sm font-bold">
                     {formatRupiah(res.salary_min + '')} - {formatRupiah(res.salary_max + '')}/Month
                   </p>
                   <h2 className="font-sans text-gray-500 title-font text-sm font-medium mt-6">
